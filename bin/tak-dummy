@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import argparse
+import gym
+import tak_env
+
+def main(args):
+
+    env = gym.make(args.env_id)
+
+    while True:
+
+        action = env.action_space.sample()
+        state, reward, done = env.step(action)
+
+        if args.render:
+            env.render(mode='pygame')
+
+        if done:
+            break
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=None)
+
+    parser.add_argument('env_id', nargs='?', default='Tak3x3-points-v0')
+    parser.add_argument('--render', dest='render', action='store_true')
+    args = parser.parse_args()
+    main(args)
