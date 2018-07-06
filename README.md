@@ -2,7 +2,7 @@
 
 ## Install
 
-pip install --no-cache-dir --process-dependency-links .
+pip install --process-dependency-links .
 
 ## Run
 
